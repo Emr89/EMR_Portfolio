@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>NFL Big Data Bowl 2021-2022 | Eric Matthew Rupinski </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="A Deep Dive into Kickoff Return Yardage Prediction &amp; Significant Performance Factors">
+    <meta name="generator" content="Hugo 0.115.4">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="https://Emr89.github.io/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="NFL Big Data Bowl 2021-2022" />
+<meta property="og:description" content="A Deep Dive into Kickoff Return Yardage Prediction &amp; Significant Performance Factors" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Emr89.github.io/post/nfl-big-data-bowl-2021-2022/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-09T10:58:08-04:00" />
+<meta property="article:modified_time" content="2022-02-09T10:58:08-04:00" />
+<meta itemprop="name" content="NFL Big Data Bowl 2021-2022">
+<meta itemprop="description" content="A Deep Dive into Kickoff Return Yardage Prediction &amp; Significant Performance Factors"><meta itemprop="datePublished" content="2022-02-09T10:58:08-04:00" />
+<meta itemprop="dateModified" content="2022-02-09T10:58:08-04:00" />
+<meta itemprop="wordCount" content="1876">
+<meta itemprop="keywords" content="Scene," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NFL Big Data Bowl 2021-2022"/>
+<meta name="twitter:description" content="A Deep Dive into Kickoff Return Yardage Prediction &amp; Significant Performance Factors"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://Emr89.github.io/images/Pope-Edouard-de-Beaumont-1844.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://Emr89.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Eric Matthew Rupinski 
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://Emr89.github.io/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://Emr89.github.io/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://Emr89.github.io/post/" title="Projects page">
+              Projects
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">NFL Big Data Bowl 2021-2022</div>
+          
+            <div class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              A Deep Dive into Kickoff Return Yardage Prediction &amp; Significant Performance Factors
+            </div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        PROJECTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=https://Emr89.github.io/post/nfl-big-data-bowl-2021-2022/&amp;text=NFL%20Big%20Data%20Bowl%202021-2022" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">NFL Big Data Bowl 2021-2022</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-02-09T10:58:08-04:00">February 9, 2022</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><ol>
+<li>Introduction:</li>
+</ol>
+<p>When it comes to analyzing plays in today’s game, too often people form their opinions and thoughts almost entirely on how the play concluded. Is the conclusion of the play important? Of course! But often people forget the importance of analyzing the decisions and habits of players at the start of the play, because more often than not, individuals tend to display patterns. Though these patterns are beneficial for analyzing and predicting player performance, more importantly; they provide insight into the implicit interconnection of the game.  Furthermore, there’s no aspect of football that embodies the importance of initial player performance like kickoffs and kick returns.</p>
+<p>I chose to dive deeper into the mechanism of kick returns, specifically analyzing kick returns at the moment the kick returner receives the ball. My goal when researching this subset of the data, was not only to predict the number of return yards at the instantaneous moment the kick was received, but also to try and find unnoticed or underappreciated relationships between the tracking data and the number of return yards. My analysis consists of two major components. The first component was the process of creating the most beneficial data set to model. The second component was optimizing the formula of the most beneficial variables to predict the number of return yards.  The first component is not only crucial for optimizing a regression model, but also for understanding the relationship among all these various measures of the tracking data, and how these measures can be utilized to impact performance. The second component is crucial for finding the best balance of the predictors as possible, to be able to fully understand relationship amongst the tracking data. Altogether, I analyzed the composition of the tracking data in relation to the number of return yards, I modeled that relationship with various models and packages in R to optimize the accuracy of the model, and finally, I created an expected return yards variable from my model.</p>
+<ol start="2">
+<li>Procedure:</li>
+</ol>
+<p>2a. Data</p>
+<p>Though several data sources were used in the process of creating the final data frame, the tracking data was the focus of my analysis, with the exception of the ‘kickReturnYardage” from the “plays” data source.  Most of the work done, with any other data source besides the tracking data, was with the purpose of clarifying variables in the tracking, such as changing the team status from “home/away” to each player’s specific team. The following provided data sources were utilized: All the tracking data, the “play” data frame, the “game” data frame, and finally, the “PFF Scouting” data frame.</p>
+<p>Several variables were created for the purpose of analyzing aspects of the tracking data that were not explicitly shown but were most likely impactful. Also, several key variables were created to sort through specific conditions with ease. Though the created predictor variables appear at various points in the analysis, the variables were created to represent the following aspects of the data:</p>
+<ul>
+<li>A categorical combination of the exact position on the kicking team (L1, L2, …. R2,R1), along with a unique level for the kick returner (labeled “KR” and then a numerical value for the rest of the receiving team that represents the proximity to the kick returner at the point of receiving the kick</li>
+<li>A general Euclidean variable that represents every player’s distance from the Kick Returner, individually</li>
+<li>Several combinations of descriptive statistics (measuring central tendency, variance, and total size) , that describe Euclidean distances for specific subsets of players based on their team and rank in distance from the kick returner. The following contains the factors for the combinations
+o	Proximity subset, which includes the 2 closest players, the 4 closest players AFTER the initial 2, and the grand total
+o	The totals, means, and standard deviations were calculated for each of those subsets
+o	The subsets were separated by team, so the process was done for both teams.</li>
+<li>For the kicking team only: the Euclidean process above was repeated for the following variables: speed, acceleration, orientation, and direction</li>
+<li>Missed tacklers were converted to a total number of missed tackles for each play</li>
+</ul>
+<p>Additionally, several configurations of the data were created to emphasize certain variables in each case. The data set differences are the following:</p>
+<ul>
+<li>A data frame where the Euclidean distances from the kick returner were ranked, and then pivoted so each observation was one play, at the moment the kick was received. The kick returner had all of their tracking statistics, but only Euclidean distances were represented for each individual, along with a dummy variable for each ranking to display whether they were on the kicking team or receiving team.</li>
+<li>A data frame where only the kick returner and the kicking team had their tracking data represented,</li>
+<li>The main data frame for the bulk of the computations with the following set up:
+o	Contains all the variables that are mathematical representations of the distribution of specific player subsets.
+o	The kicking team is sorted by precise position (and not just Euclidean distance)
+o	The receiving team players are included, and are labeled by ranking of the distance to the kick returner at the point of the kick being received.
+After applying the same methodology to the various data frames, the best resulting data set consists of only position-based tracking statistics for the kicking team and the kick returner, the remainder of the kick return team was represented summary statistics of a subset the return team and the kicking team.</li>
+</ul>
+<p>In connection was the most advantageous model, the following variables were the present in the final form of the data: (All variables are at the point that the kick is received by the kick returner):</p>
+<ul>
+<li>X = the position of the kick returner</li>
+<li>TMT = the number of hypothetical missed tackles during the play</li>
+<li>RTC2 = Total Euclidean for Receiving Team (First 2 closest players besides kick returner)</li>
+<li>RSDE = The Euclidian’s total standard deviation for the kicking team</li>
+<li>RMC2 = Mean Euclidean for Kick Team (First 2 closest players)</li>
+<li>returnDirectionActual_C= when the ball is being returned center</li>
+<li>KTC3T6 = The total Euclidean for the 3rd closest to 6th closest players on the kicking team</li>
+<li>KTC2 = Total Euclidean for Kick Team (First 2 closest players)</li>
+<li>KME = The mean Euclidean distance of the kicking team</li>
+<li>KMC3T6 = the men Euclidean distance of the 3rd closest to 6th closest player on the kicking team</li>
+<li>KMC2 = The mean Euclidean distance of the closest 2 players on the kicking team</li>
+<li>EurR5= Distance from R5 to the kick returner</li>
+<li>EucR4= Distance from R4 to the kick returner</li>
+<li>EucR3= Distance from R3 to the kick returner</li>
+<li>EucR2= Distance from R2 to the kick returner</li>
+<li>EucR1= Distance from R1 to the kick returner</li>
+<li>EucL5= Distance from L5 to the kick returner</li>
+<li>EucL4= Distance from L4 to the kick returner</li>
+<li>EucL3 = Distance from L3 to the kick returner</li>
+<li>EucL2= Distance from L2 to the kick returner</li>
+<li>EucL1 = Distance from L1 to the kick returner</li>
+<li>EucK = Distance from the kicker to the kick returner</li>
+<li>AccKME = The mean acceleration of the kicking team</li>
+</ul>
+<p>The models tended to perform better when the data was centered, scaled, and transformed using YeoJohnson’s transformations.</p>
+<p>2b. Models
+There were two rounds of model implementation. The first round contained a wide variety of models, that were all tuned a similar way using the caret package. These models include:
+3.	Neural Networks
+4.	Glmnet (Lasso and elastic nnet regression)
+5.	Elastic Net regression
+6.	Ridge regression
+7.	Random forests</p>
+<p>Countless models were attempted with a variety of transformations and variable contents. By far the best performing model came from the variables mentioned above along with variables representing the speed, acceleration, and orientation of every member on the field. The resulting subset of variables above was the resulting model that was subset as small as possible, while still retaining almost all the model accuracy. The most practical model was found to be a random forest model with a R^2 = 0.2763, as it only contained 23 predictors, compared to the ~ 100 predictors for the remaining models. The highest R^2 observed was an elastic net regression with an R^2 = 0.3. Every model was assessed with 10-fold cross validation, with 3 repeats. Those following models are presented below:</p>
+<p>2c. Plus/Minus Expected
+An expected return yardage prediction was created based solely off the data in the instantaneous moment the kick returner had received the ball. The following 10 returners were deemed to be the highest over the expected kick return yards over the entire 2018 season.</p>
+<p>2d. Variable importance (As shown below):</p>
+<p>The first major component of the analysis was to measure the importance of the variables in some of the various versions of the data set. This measure was determined by random Forests importance measures, and caret’s feature selection measures. Based off several attempts at modeling various combinations of the tracking data, the following has become apparent. First, the most influential variable is the kick is the mean distance from the front 2 players on the kicking team. Second, the positional data, represented as the Euclidean distance, tends to mean far more than the orientation, speed, or even speed of the kicking team players. Third, the individual Euclidean distance only seems to be very influential at the kicking team level, the receiving team Euclidean distance appears more useful in the form of the summary statistics of its general distribution. Fourth, the average distance from the kick returner appears to be far more important than the total Euclidean distance of the entire kicking team, which means that the importance of the distances relies on each players relative distance more than the grand total, with the exception of the fastest 2 players on the kicking team. Though speed of the fastest players on the kicking team is vital, the remainder of the kicking team must be in the same range of proximity to the kick returner to ensure success tackling the kick returner. Next, obviously missed tackled have a significant impact on the amount of return yards, but interestingly enough, not as much as the general distribution of the distances from the kick returner and from each other on the kicking team.  Additionally, it appears that the players whose Euclidean distances that matter the most on the kicking team, tend to line up near the middle of the field, such as L5, L4, R4, R5. So, it would appear that ideally the fastest players on the kicking team line up in the positions closest to the kicker. Finally, the only movement statistic that was significant was the mean acceleration of every player on the kicking team, which means that cohesiveness as a unit might mean more than the individual speeds of the player.</p>
+<p>For the receiving team, it appears that the spread of the distances amongst the blockers appears to carry the most weight. The most important blockers appear to definitely be the two closest blockers, as they need to be close enough at the point of receiving the ball.</p>
+<p>Finally for the kick returner, the position on the field he receives the ball at matters, and returning the ball in the middle of the field tends to have a slightly negative impact on the expected return yards.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="https://Emr89.github.io/tags/scene/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Scene</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://Emr89.github.io/" >
+    &copy;  Eric Matthew Rupinski  2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

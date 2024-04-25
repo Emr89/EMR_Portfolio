@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>NFL Multivariate Analysis | Eric Matthew Rupinski </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Utilizing NFL Data to Learn New Multivariate Analysis Techniques In College Level Multivariate Statistics Course">
+    <meta name="generator" content="Hugo 0.115.4">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="https://Emr89.github.io/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="NFL Multivariate Analysis" />
+<meta property="og:description" content="Utilizing NFL Data to Learn New Multivariate Analysis Techniques In College Level Multivariate Statistics Course" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://Emr89.github.io/post/nfl-multivariate-analysis/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-10-04T05:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-04T05:00:00+00:00" />
+<meta itemprop="name" content="NFL Multivariate Analysis">
+<meta itemprop="description" content="Utilizing NFL Data to Learn New Multivariate Analysis Techniques In College Level Multivariate Statistics Course"><meta itemprop="datePublished" content="2019-10-04T05:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-04T05:00:00+00:00" />
+<meta itemprop="wordCount" content="4907">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NFL Multivariate Analysis"/>
+<meta name="twitter:description" content="Utilizing NFL Data to Learn New Multivariate Analysis Techniques In College Level Multivariate Statistics Course"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  <header class="cover bg-top" style="background-image: url('https://Emr89.github.io/images/gohugo-default-sample-hero-image.jpg');">
+    <div class="bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://Emr89.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Eric Matthew Rupinski 
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://Emr89.github.io/about/" title="About page">
+              About
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://Emr89.github.io/contact/" title="Contact page">
+              Contact
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="https://Emr89.github.io/post/" title="Projects page">
+              Projects
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <div class="f2 f1-l fw2 white-90 mb0 lh-title">NFL Multivariate Analysis</div>
+          
+            <div class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
+              Utilizing NFL Data to Learn New Multivariate Analysis Techniques In College Level Multivariate Statistics Course
+            </div>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        PROJECTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+      
+      <a href="https://twitter.com/share?url=https://Emr89.github.io/post/nfl-multivariate-analysis/&amp;text=NFL%20Multivariate%20Analysis" class="ananke-social-link twitter no-underline" aria-label="share on Twitter">
+        
+        <span class="icon"> <svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+        
+      </a>
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">NFL Multivariate Analysis</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-10-04T05:00:00Z">October 4, 2019</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h2 id="introduction">Introduction:</h2>
+<p>This project is a collection of homework assignments for the college level course &ldquo;Multivariate Analysis&rdquo; at Rutgers University. The data used for all the homework assignments was self-created NFL Data Set from various online sources and used to track weekly performance for each team in each one of their matchups.</p>
+<h5 id="there-are-14-homework-assignments-in-total-that-are-presented-as-one-project-the-following-statistical-topics-are-covered-in-the-project">There are 14 homework assignments in total that are presented as one project. The following statistical topics are covered in the project:</h5>
+<ul>
+<li>Finding Mean Vectors</li>
+<li>Finding Variance-Covariance Matricies</li>
+<li>Finding Correlation Matricies</li>
+<li>Assessing Bivariate Normality in Pairs with Several Statistical Tests for Normality</li>
+<li>Checking Data Set for Outliers &amp; Removing Them</li>
+<li>Creating Bonferroni Confidence Intervals</li>
+<li>Testing Given Numbers Supposedly Representing Means &amp; Testing Them Against Actual Population Means</li>
+<li>Testing Mean Difference in Two Different Samples</li>
+<li>Creating Multivariate Linear Models</li>
+<li>Conducting Principal Component Analysis (PCA)</li>
+<li>Obtaining Eigenvalue &amp; Eigenvector for PCA</li>
+<li>Model Selection for Mulitvariate Models</li>
+<li>Creating &amp; Analyzing Growth Curves</li>
+<li>Conducting Explanatory Factor Analysis</li>
+<li>Performing Maximum-Likelihood Factor Analysis Covariance Matrix W/ Loadings</li>
+<li>Comparing Effectiveness of Various Factor Analysis</li>
+<li>Computing Canonical Correlations &amp; Testing for Signifigance</li>
+<li>Generating Helio Plots</li>
+<li>Calculating Euclidean Distances</li>
+<li>Creating Dendrograms</li>
+<li>Conducting K-Means Clustering</li>
+</ul>
+<h5 id="note-some-reflections-and-answers-were-required-for-some-of-the-assignments-and-their-subsections-but-not-for-all-if-no-reflection-is-followed-after-the-creation-of-the-required-task-of-the-assignment-then-the-focus-was-just-the-process-of-the-creation">Note: Some reflections and answers were required for some of the assignments and their subsections, BUT not for all. If no reflection is followed after the creation of the required task of the assignment, then the focus was just the process of the creation.</h5>
+<h2 id="assignment-task-guide">Assignment Task Guide:</h2>
+<h5 id="assignment-1--find-the-mean-vector-variance-covariance-matrix-and-correlation-matrix">Assignment #1 = Find the Mean Vector, Variance-Covariance Matrix, and Correlation Matrix</h5>
+<h5 id="assignment-2--assess-bivariate-normality-in-pairs">Assignment #2 = Assess Bivariate Normality in Pairs</h5>
+<h5 id="assignment-3--bonferroni-confidence-intervals-test-hypothesis-that-provided-means-dodo-not-equalrepresent-actual-values">Assignment #3 = Bonferroni Confidence Intervals, Test hypothesis that provided means do/do not equal/represent actual values</h5>
+<h5 id="assignment-4--test-for-difference-in-mean-vectors-between-two-different-samplestreatment-groups-construct-99-and-95-simultaneous-confidence-intervals-for-the-pairs-of-mean-components-what-treatments-if-any-appear-to-be-different--construct-95-bonferroni-cis-for-pairs-of-mean-components">Assignment #4 = Test for difference in mean vectors between two different samples/treatment groups, Construct 99% and 95% simultaneous confidence intervals for the pairs of mean components, what treatments, if any, appear to be different? &amp; Construct 95% bonferroni CIs for pairs of mean components</h5>
+<h5 id="assignment-5--find-linear-models-for-4-variables-construct-a-95-prediction-interval-for-sqrtpy-prediction-with-values-teams--28-fd--21-comp--678-tay--86-sqrtry-87-bccay--362-create-multivariate-regression-model--create-95-prediction-interval">Assignment #5 = Find Linear Models for 4 variables, Construct a 95% Prediction Interval for sqrtPY prediction with values TEAMS = 28, FD = 21, COMP = 67.8, TAY = 8.6, sqrtRY= 8.7, BCCAY = 3.62, Create Multivariate Regression Model &amp; Create 95% Prediction Interval</h5>
+<h5 id="assignment-6--construct-covariance-matrix-obtain-eigenvalue-and-eigenvector-for-pca-compute-total-portion-by-first-two-principle-components">Assignment #6 = Construct covariance matrix, obtain eigenvalue and eigenvector for PCA, compute total portion by first two Principle Components.</h5>
+<h5 id="assignment-7--growth-curve-exercise-w-different-provided-data">Assignment #7 = Growth Curve Exercise w/ Different Provided Data</h5>
+<h5 id="assignment-8--conducting-explanatory-factor-analysis-along-with-maximum-likelihood-factor-analysis-while-specifying-the-number-of-loadings--factors">Assignment #8 = Conducting Explanatory Factor Analysis, along with Maximum Likelihood Factor Analysis, While Specifying the Number of Loadings &amp; Factors</h5>
+<h5 id="assignment-9--conducting-principle-component-analysis-pca-calculate-loadings--communalities--find-residuals--uniqueness">Assignment #9 = Conducting Principle Component Analysis (PCA), Calculate Loadings &amp; Communalities, &amp; Find Residuals &amp; Uniqueness</h5>
+<h5 id="assignment-10--perform-factor-analysis-using-correlation-matrix-specifically-pca--factor-analysis-w-various-number-of-loadings--factors-then-reflect-on-if-it-matters-which-type-of-analysis-is-factored-or-not">Assignment #10 = Perform Factor Analysis Using Correlation Matrix, specifically PCA &amp; Factor Analysis w/ various number of Loadings &amp; Factors, Then Reflect on if it matters which type of analysis is factored or not.</h5>
+<h5 id="assignment-11--conduct-factor-analysis--generate-the-following-specific-variances-communalities-proportion-of-variance-explained-by-each-factor-residual-matrix">Assignment #11 = Conduct Factor Analysis &amp; generate the following: specific variances, communalities, proportion of variance explained by each factor, residual matrix</h5>
+<h5 id="assignment-12--compute-the-canonical-correlations-test-for-the-significance-of-the-canonical-correlations-with-alpha001-generate-two-plots-using-the-function-helioplot-one-plot-for-cv1-and-one-plot-for-cv2-write-a-paragraph-describing-the-information-displayed-in-the-plots">Assignment #12 = Compute the canonical correlations, Test for the significance of the canonical correlations with alpha=0.01, Generate two plots using the function helio.plot: one plot for cv=1 and one plot for cv=2, Write a paragraph describing the information displayed in the plots.</h5>
+<h5 id="assignment-13--create-euclidean-distances-and-dendrograms-compare-results-and-determine-if-there-are-several-clusters">Assignment #13 = Create Euclidean Distances and dendrograms, compare results and determine if there are several clusters</h5>
+<h5 id="assignment-14--conduct-k-means-clustering-algorithm-compare-to-assignment-13-are-there-about-the-right-number-of-clusters">Assignment #14 = Conduct K-Means Clustering algorithm, Compare to assignment 13, are there about the right number of clusters</h5>
+<h2 id="data-set-description">Data Set Description:</h2>
+<p>NFL Data that was constructed using a combination of sources such as the NFL, NEXT GEN STATS, ESPN, FOOTBALLDB. Data is TEAM based performance for match ups on a week to week basis
+Data set called  &ldquo;WEEKlY TEAM PERFORMANCE&rdquo;, which will be used for individual team performance.</p>
+<h3 id="explanation-of-variables">EXPLANATION OF VARIABLES:</h3>
+<table>
+<thead>
+<tr>
+<th><strong>Variable</strong></th>
+<th><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Team</td>
+<td>(ID) which NFL TEAM that line of data in from the perspective of</td>
+</tr>
+<tr>
+<td>Outcome</td>
+<td>Binary, either (1,0), did the team win the game or not, 1 = Team WON, 0 = Team Lost</td>
+</tr>
+<tr>
+<td>Opp</td>
+<td>The name of the opposition/other team in the match up opposition/other team in the match up</td>
+</tr>
+<tr>
+<td>TEAMS</td>
+<td>The Team&rsquo;s score from the game, ex = scored 34 points in the game, TEAMS = 34</td>
+</tr>
+<tr>
+<td>OPPS</td>
+<td>The Opponents&rsquo; score from the game, ex had 21 points scored AGAINST the team during the game, OPPS = 17</td>
+</tr>
+<tr>
+<td>FD</td>
+<td># of first downs obtained by the Team throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>PY</td>
+<td># of Passing Yards obtained by the Team throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>RY</td>
+<td># of Rushing Yards obtained by the Team throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>TO</td>
+<td># of Turnovers (fumbles/Interceptions) PRODUCED by the Team throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>DFD</td>
+<td># of first downs obtained by the Opponent throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>DPY</td>
+<td># of Passing Yards obtained by the Opponent throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>DRY</td>
+<td># of Rushing Yards obtained by the Opponent throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>DTO</td>
+<td># of Turnovers (fumbles/Interceptions) PRODUCED by the Opponent throughout the ENTIRE game</td>
+</tr>
+<tr>
+<td>TT</td>
+<td>&ldquo;Time to Throw measures the average amount of time elapsed from the time of snap to throw on every pass attempt for a passer (sacks excluded)&rdquo; (Next Gen Stats)</td>
+</tr>
+<tr>
+<td>CAY</td>
+<td>Average amount of air yards on COMPLETED passes</td>
+</tr>
+<tr>
+<td>AGG</td>
+<td>Aggressiveness percent, the percentage of passes the Quarterback throws into tight coverage</td>
+</tr>
+<tr>
+<td>LCAD</td>
+<td>Longest completed Air distance throw for the entire game</td>
+</tr>
+<tr>
+<td>AYTS</td>
+<td>Average Yards to the Sticks, which is the amount of air yards ahead/behind the first down marker for all attempts for the passer</td>
+</tr>
+<tr>
+<td>ATT</td>
+<td>The total number of PASSING attempts the Quarterback attempts during the ENTIRE GAME</td>
+</tr>
+<tr>
+<td>TD</td>
+<td>The total number of PASSING Touchdowns the Quarterback THROWS the ENTIRE GAME</td>
+</tr>
+<tr>
+<td>INT</td>
+<td>The total number of PASSING INTERCEPTIONS the Quarterback THROWS the ENTIRE GAME</td>
+</tr>
+<tr>
+<td>COMP</td>
+<td>The Completion Percentage for the Quarterback over the ENTIRE GAME (RATIO OF PASSES COMPLETED/PASSES ATTEMPTED)</td>
+</tr>
+<tr>
+<td>Week</td>
+<td>The numbered week in the NFL season that the GAME occurred in</td>
+</tr>
+<tr>
+<td>RUSHATT</td>
+<td>The # of RUSHING attempts, attempted by primary running back/s</td>
+</tr>
+<tr>
+<td>RUSHTD</td>
+<td># of RUSHING Touchdowns scored by primary running back/s</td>
+</tr>
+<tr>
+<td>EFF</td>
+<td>The average efficiency of the running back/s in terms of running North/South. THE LOWER the number, the more of a North/South running back the average Running back is.</td>
+</tr>
+<tr>
+<td>EM</td>
+<td>the average percentage that there are 8+ defenders in the box, in terms of preparing for the running play</td>
+</tr>
+<tr>
+<td>TLOS</td>
+<td>the average amount of time the Running back stays behind the line of scrimmage from the start of the snap until when he crosses the line of scrimmage</td>
+</tr>
+<tr>
+<td>AVG</td>
+<td>the average # of yards the running back gains PER PLAY</td>
+</tr>
+<tr>
+<td>CUSH</td>
+<td>the average amount of cushion in terms of yard cushion a WR given per play</td>
+</tr>
+<tr>
+<td>SEP</td>
+<td>the average amount of separation a WR creates from a defensive back each play</td>
+</tr>
+<tr>
+<td>TAY</td>
+<td>average passing air yards for targets for each play</td>
+</tr>
+<tr>
+<td>CTCH</td>
+<td>the average catch percentage for the team per game</td>
+</tr>
+<tr>
+<td>YACR</td>
+<td>the average amount of yards attained AFTER the RECEPTION by WRs/TE PER PLAY(average for the entire team)</td>
+</tr>
+<tr>
+<td>&mdash;</td>
+<td>&mdash;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="assignment-code-charts--findings">Assignment Code, Charts, &amp; Findings</h2>
+<h3 id="basic-data-preparation">Basic Data Preparation</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Dimension of the data set
+</span></span><span style="display:flex;"><span>dim(WTP)
+</span></span></code></pre></div><p>There are 34 variables and 512 observations</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Printing Data set:
+</span></span><span style="display:flex;"><span>print(WTP)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Get rid of NA observations 
+</span></span><span style="display:flex;"><span>WTP &lt;<span style="color:#f92672">-</span> <span style="color:#a6e22e">na</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">omit</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">WTP</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Make data frame into a matrix
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WTPM</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-t</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">as</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">matrix</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">WTP</span><span style="color:#960050;background-color:#1e0010">))</span>
+</span></span></code></pre></div><h3 id="assignment-1">Assignment 1:</h3>
+<p>Find the Mean Vector, Variance-Covariance Matrix, and Correlation Matrix</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>#Subset data for ease to New England Patriots 
+</span></span><span style="display:flex;"><span>NEDF&lt;<span style="color:#f92672">-</span> <span style="color:#a6e22e">subset</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">WTP</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">Team</span><span style="color:#f92672">=</span><span style="color:#e6db74">=&#34;NE&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">NEDF</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">NEDF</span><span style="color:#960050;background-color:#1e0010">[,</span><span style="color:#a6e22e">-1</span><span style="color:#960050;background-color:#1e0010">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">NEDF</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">NEDF</span><span style="color:#960050;background-color:#1e0010">[,</span><span style="color:#a6e22e">-2</span><span style="color:#960050;background-color:#1e0010">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">NEM</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">as</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">matrix</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">NEDF</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Find Mean vector Xbar
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xbarNE</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">rowMeans</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">NEM</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>#print Xbar for NE
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">xbarNE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Find Variance-Covariance Matrix
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">covNE</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">cov</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">NEM</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">NEM</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>#print Variance-Covariance Matrix
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">covNE</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Find Correlation Matrix
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">corNE</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">cor</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">NEM</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">NEM</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span>#print Correlation Matrix
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">corNE</span>
+</span></span></code></pre></div><h4 id="results">Results:</h4>
+<ul>
+<li>xbarNE = The Mean Vector of the Data</li>
+<li>covNE = The Variance-Covariance Matrix of the Data</li>
+<li>corNE = The Correlation Matrix of the Data</li>
+</ul>
+<h3 id="assignment-2-work">Assignment #2 Work</h3>
+<p>Assess Bivariate Normality in Pairs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>#Library and Set up Dataset
+</span></span><span style="display:flex;"><span>library(MVN)
+</span></span><span style="display:flex;"><span>library(tidyverse)
+</span></span><span style="display:flex;"><span>library(careless)
+</span></span><span style="display:flex;"><span>library(psych)
+</span></span><span style="display:flex;"><span>library(mclust)
+</span></span><span style="display:flex;"><span>library(ppcc)
+</span></span><span style="display:flex;"><span>A2WTP &lt;<span style="color:#f92672">-</span> <span style="color:#a6e22e">WTP</span><span style="color:#960050;background-color:#1e0010">[,</span><span style="color:#a6e22e">c</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">12</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">20</span><span style="color:#960050;background-color:#1e0010">)]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#All Major Tests For Normality:
+</span></span><span style="display:flex;"><span>  #Mardia<span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">HZ</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">Royston</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">DH</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">Energy</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#mardia test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn1</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">A2WTP,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mardia&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#HZ test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn2</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">A2WTP,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hz&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Royston test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn3</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">A2WTP,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;royston&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#DH test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn4</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">A2WTP,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dh&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Energy test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn5</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">A2WTP,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;energy&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn5</span>
+</span></span></code></pre></div><h4 id="normality-results">Normality Results:</h4>
+<ul>
+<li>Mardia = NO MULTIVARIATE NORMALITY</li>
+<li>HZ = MULTIVARIATE NORMALITY</li>
+<li>ROYSTON = NO MULTIVARIATE NORMALITY</li>
+<li>DH = NO MULTIVARIATE NORMALITY</li>
+<li>ENERGY = MULTIVARIATE NORMALITY</li>
+</ul>
+<p>Results: No, Yes, No, Yes, No</p>
+<p>RESULTS ARE DUE TO &ldquo;TT&rdquo; VARIABLE NOT NORMALLY DISTRIBUTED</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>#CHECK FOR OUTLIERS IN Dataset
+</span></span><span style="display:flex;"><span>#Take Outliers out of data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#NOTE OUTLIER CODE WILL RUN IN R BUT WILL NOT KNIT 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  #Mutate WTP to calculate outliers
+</span></span><span style="display:flex;"><span>AWTP &lt;<span style="color:#f92672">-WTP</span> <span style="color:#960050;background-color:#1e0010">%</span>&gt;%
+</span></span><span style="display:flex;"><span> mutate(string = longstring(.)) %&gt;%
+</span></span><span style="display:flex;"><span>mutate(md=outlier(.,plot = FALSE))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#USing Chi Squared, get rid of the outliers and reset the Dataset
+</span></span><span style="display:flex;"><span>cutoff &lt;<span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">qchisq</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">p</span><span style="color:#f92672">=</span><span style="color:#e6db74">1-0.001,</span> <span style="color:#a6e22e">df</span><span style="color:#f92672">=</span><span style="color:#e6db74">ncol(AWTP)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WTPC</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">AWTP</span> <span style="color:#960050;background-color:#1e0010">%</span>&gt;% 
+</span></span><span style="display:flex;"><span> filter(string <span style="color:#960050;background-color:#1e0010">&lt;</span>= 10,
+</span></span><span style="display:flex;"><span>         md&lt;<span style="color:#f92672">cutoff</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">%</span>&gt;%
+</span></span><span style="display:flex;"><span>  select(-string,-md)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Remove all NAs 
+</span></span><span style="display:flex;"><span>WTPCs_clustering &lt;<span style="color:#f92672">-</span> <span style="color:#a6e22e">WTPC</span> <span style="color:#960050;background-color:#1e0010">%</span>&gt;%
+</span></span><span style="display:flex;"><span> na.omit() 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># REDEFINE DATASET AND RETRYING NORMALITY TESTS 
+</span></span><span style="display:flex;"><span>WTPCC&lt;<span style="color:#f92672">-</span> <span style="color:#a6e22e">data</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">frame</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">WTPCs_clustering</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">SWTPCC</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-</span> <span style="color:#a6e22e">WTPCC</span><span style="color:#960050;background-color:#1e0010">[,</span><span style="color:#a6e22e">c</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">12</span><span style="color:#960050;background-color:#1e0010">,</span><span style="color:#a6e22e">20</span><span style="color:#960050;background-color:#1e0010">)]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#mardia test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn6</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">SWTPCC,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mardia&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#HZ test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn7</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">SWTPCC,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hz&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn7</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Royston test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn8</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">SWTPCC,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;royston&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#DH test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn9</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">SWTPCC,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dh&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#Energy test for multivariate normality 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn10</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">-MVN::mvn</span><span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">data </span><span style="color:#f92672">=</span> <span style="color:#e6db74">SWTPCC,</span> <span style="color:#a6e22e">mvnTest </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;energy&#34;</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">mvn10</span>
+</span></span></code></pre></div><h4 id="results-1">RESULTS:</h4>
+<ul>
+<li>Mardia = MULTIVARIATE NORMALITY</li>
+<li>HZ = MULTIVARIATE NORMALITY</li>
+<li>ROYSTON = MULTIVARIATE NORMALITY</li>
+<li>DH = MULTIVARIATE NORMALITY</li>
+<li>ENERGY = MULTIVARIATE NORMALITY</li>
+</ul>
+<p>#Results: Yes, Yes, Yes, Yes, Yes</p>
+<p>#Additional Test for Normality
+#ProbPlot&lt;- ppccTest(SWTPCC, qfn=&ldquo;qnorm&rdquo;)</p>
+<p>#Result: Test stated the differs from Normal Distrivution</p>
+<p>#Results: ALL TESTS STATE: MULTIVARIATE NORMALITY = TRUE (Except for Probility Plot Coefficent Correlation Test)</p>
+<p>#Which means that searching for outliers in the TT variable was effective and removing those outliers and standardizing lead to the distribution becoming normally distributed, most likely.</p>
+<p>#Assignment 3:
+#Bonferroni Confidence Intervals, Test hypothesis that provided means do/do not equal/represent actual values
+#Create Variance-Covariance Matrix and Correlation Matrix</p>
+<p>#Library and Set Up Dataset:
+WTP&lt;- read_excel(&ldquo;C:/Users/ericr/Desktop/NFL STATISTICS/NFL PROJECT DATA/T test data/WTP AV.xlsx&rdquo;)
+library(DescTools)
+library(jocre)
+DFF1 &lt;- WTP[,c(6,22)]
+SDF1 &lt;- DFF1[1:32,]</p>
+<p>#Covariance Matrix:
+COVSDF1 &lt;- cov(SDF1)
+COVSDF1</p>
+<p>#Correlation Matrix:
+CORSDF1 &lt;- cor(SDF1)
+CORSDF1</p>
+<p>#95% ellipsoid
+#use cset function in jocre package
+NFE1 &lt;- cset(dat =SDF1, method = &ldquo;hotelling&rdquo;, alpha = 0.05)
+plot(NFE1,xlim = c(15,30),ylim = c(60,70),  main = &ldquo;CI Region btwn FD &amp; COMP&rdquo;)</p>
+<p>#BONFERRONI CI Function
+simult.ci &lt;- function(x,n,p){
+crit.value&lt;-sqrt(((p*(n-1))/(n-p)<em>qf(0.05,p,n-p,lower.tail = FALSE)))
+paste(&quot;(&quot;,mean(x)-crit.value</em>sqrt(var(x)/n),&quot;,&quot;,mean(x)+crit.value<em>sqrt(var(x)/n),&quot;)&quot;)
+}
+bonferroni.cis &lt;- function(m,x,n){
+critical_value &lt;-qt(0.05/(2</em>m),n-1,lower.tail = FALSE)
+paste(&quot;(&quot;,mean(x)-critical_value<em>sqrt(var(x)/n),&quot;,&quot;,mean(x)+critical_value</em>sqrt(var(x)/n),&quot;)&quot;)
+}</p>
+<p>#Set up for simultaneous CI For Test
+n &lt;- 32
+p &lt;-2</p>
+<p>#simultaneous Hotelling CIS
+simult.ci(SDF1$FD,n,p)
+simult.ci(SDF1$COMP,n,p)</p>
+<p>#Bonferroni CIs:
+bonferroni.cis(2,SDF1$FD,32)
+bonferroni.cis(2,SDF1$COMP,32)</p>
+<p>#Function calculates and plots confidence intervals based on Hotellings&rsquo; T2 and Bonferroni procedure</p>
+<p>working.hotelling.bonferroni.intervals &lt;- function(x, y) {
+library(ggplot2)
+library(gridExtra)</p>
+<p>y &lt;- as.matrix(y)
+x &lt;- as.matrix(x)
+n &lt;- length(y)</p>
+<h1 id="get-the-fitted-values-of-the-linear-model">Get the fitted values of the linear model</h1>
+<p>fit &lt;- lm(y ~ x)
+fit &lt;- fit$fitted.values</p>
+<h1 id="find-standard-error-as-defined-above">Find standard error as defined above</h1>
+<p>se &lt;- sqrt(sum((y - fit)^2) / (n - 2)) *
+sqrt(1 / n + (x - mean(x))^2 /
+sum((x - mean(x))^2))</p>
+<h1 id="calculate-b-and-w-statistics-for-both-procedures">Calculate B and W statistics for both procedures.</h1>
+<p>W &lt;- sqrt(2 * qf(p = 0.95, df1 = 2, df2 = n - 2))
+B &lt;- 1-qt(.95/(2 * 3), n - 1)</p>
+<h1 id="compute-the-simultaneous-confidence-intervals">Compute the simultaneous confidence intervals</h1>
+<h1 id="working-hotelling">Working-Hotelling</h1>
+<p>wh.upper &lt;- fit + W * se
+wh.lower &lt;- fit - W * se</p>
+<h1 id="bonferroni">Bonferroni</h1>
+<p>bon.upper &lt;- fit + B * se
+bon.lower &lt;- fit - B * se</p>
+<p>xy &lt;- data.frame(cbind(x,y))</p>
+<h1 id="plot-the-working-hotelling-intervals">Plot the Working-Hotelling intervals</h1>
+<p>wh &lt;- ggplot(xy, aes(x=x, y=y)) +
+geom_point(size=2.5) +
+geom_line(aes(y=fit, x=x), size=1) +
+geom_line(aes(x=x, y=wh.upper), colour=&lsquo;blue&rsquo;, linetype=&lsquo;dashed&rsquo;, size=1) +
+geom_line(aes(x=x, wh.lower), colour=&lsquo;blue&rsquo;, linetype=&lsquo;dashed&rsquo;, size=1) +
+labs(title=&lsquo;Working-Hotelling&rsquo;)</p>
+<h1 id="plot-the-bonferroni-intervals">Plot the Bonferroni intervals</h1>
+<p>bonn &lt;- ggplot(xy, aes(x=x, y=y)) +
+geom_point(size=2.5) +
+geom_line(aes(y=fit, x=x), size=1) +
+geom_line(aes(x=x, y=bon.upper), colour=&lsquo;blue&rsquo;, linetype=&lsquo;dashed&rsquo;, size=1) +
+geom_line(aes(x=x, bon.lower), colour=&lsquo;blue&rsquo;, linetype=&lsquo;dashed&rsquo;, size=1) +
+labs(title=&lsquo;Bonferroni&rsquo;)</p>
+<p>grid.arrange(wh, bonn, ncol = 2)</p>
+<h1 id="collect-results-of-procedures-into-a-dataframe-and-return">Collect results of procedures into a data.frame and return</h1>
+<p>res &lt;- data.frame(round(cbind(W, B), 3), row.names = c(&lsquo;Result&rsquo;))
+colnames(res) &lt;- c(&lsquo;W&rsquo;, &lsquo;B&rsquo;)</p>
+<p>return(res)
+}
+#plotting FD and Comp variables from above with new function</p>
+<p>working.hotelling.bonferroni.intervals(SDF1$COMP,SDF1$FD)</p>
+<p>#Hypothetical Test if given mean values equal the actual mean values of the distribution</p>
+<p>MU_G &lt;- c(25.0,68.00)
+HotellingsT2Test(SDF1,mu=MU_G,test = &ldquo;f&rdquo;)</p>
+<p>#Results of Hotelling Test:
+#As expected, the given means of 25.0 for FD(First Downs) and 68 for COMP (Completion Percentage) are NOT the TRUE means for the distributions, as the true means are equal to ~ 20 first downs for FD and 63.77% completion percentage for COMP.</p>
+<p>#Assignment 4:
+#test for difference in mean vectors between two different samples/treatment groups, construct 99% and 95% simultaneous confidence intervals for the pairs of mean components, what treatments, if any, appear to be different, construct 95% bonferroni CIs for pairs of mean components</p>
+<p>#Library and Set Up Dataset
+NESUB &lt;- subset(WTP,Team==&ldquo;NE&rdquo;)
+NYJSUB &lt;- subset(WTP,Team==&ldquo;NYJ&rdquo;)</p>
+<p>NESUB &lt;- NESUB[,c(-3)]
+NYJSUB &lt;- NYJSUB[,c(-3)]
+MNENY&lt;- as.data.frame(rbind(NESUB,NYJSUB))</p>
+<p>#Hotelling Test:
+MNENY &lt;- MNENY[,c(-23:-28)]</p>
+<p>HT2 &lt;- with(MNENY,HotellingsT2Test(cbind(outcome,TEAMS,OPPS,FD,PY,RY,TO,DFD,DRY,DPY,DTO,TT,CAY,AGG,LCAD,AYTS,ATT,TD,INT,COMP,Week,CUSH,SEP,TAY,CTCH,YACR)~Team))</p>
+<p>#Results:
+#p value = 0.07533302</p>
+<h1 id="though-this-does-not-meet-the-threshold-for-alpha-level-of-005-this-is-a-large-data-set-and-it-does-meet-the-alpha-level-of-01-and-this-is-just-an-example-so-we-will-continue-with-calculating-cis">Though this does not meet the threshold for alpha level of 0.05, this is a large data set and it does meet the alpha level of 0.1 and this is just an example, so we will continue with calculating CIs</h1>
+<p>#Two Sample T Test
+TWOSAMPLETTEST &lt;- function(x1,x2,level){
+p&lt;-ncol(x1)
+n1&lt;-nrow(x1)
+n2&lt;-nrow(x2)
+x1bar&lt;- apply(x1,2,mean)
+x2bar&lt;- apply(x2,2,mean)
+cat(&quot;\n mean vector of population one \n&quot;, x1bar)
+cat(&quot;\n\n mean vector of population two \n&quot;, x2bar)
+s1&lt;-cov(x1)
+s2&lt;-cov(x2)
+s.pool &lt;- (n1-1)/(n1+n2-2)<em>s1+(n2-1)/(n1+n2-2)<em>s2
+tsq&lt;-t(x1bar-x2bar)%</em>%solve((1/n1 +1/n2)<em>s.pool)%</em>%(x1bar-x2bar)
+csq&lt;-(n1+n2-2)</em>(p/(n1+n2-p-1))<em>qf(level,p,n1+n2-p-1)
+if(tsq&gt;csq){
+cat(&quot;\n\n reject equality of mean vectors\n \n&quot;)
+cat(&ldquo;The coefficents of the linear combination \n of most responsible for the rejection is
+\n&rdquo;, solve(s.pool)%</em>% (x1bar-x2bar))
+}
+else cat(&quot;\n\n do NOT reject equality of mean vectors\n \n&quot;)
+scit&lt;- matrix(rep(0,p<em>3),nrow = p)
+scib&lt;- matrix(rep(0,p</em>3),nrow = p)
+for(i in 1:p){
+scit[i,1]&lt;-x1bar[i]-x2bar[i]
+scit[i,2]&lt;-x1bar[i]-x2bar[i]-sqrt(csq)*sqrt((1/n1+1/n2)*s.pool[i,i])
+scit[i,3]&lt;-x1bar[i]-x2bar[i]+sqrt(csq)*sqrt((1/n1+1/n2)<em>s.pool[i,i])
+scib[i,1]&lt;-x1bar[i]-x2bar[i]
+scib[i,2]&lt;-x1bar[i]-x2bar[i]-qt(1-(1-level)/(2</em>p),n1+n2-2)*sqrt((1/n1+1/n2)<em>s.pool[i,i])
+scib[i,3]&lt;-x1bar[i]-x2bar[i]+qt(1-(1-level)/(2</em>p),n1+n2-2)*sqrt((1/n1+1/n2)*s.pool[i,i])
+}</p>
+<p>scit&lt;-data.frame(Estimate=scit[,1],LowerCI=scit[,2],UpperCI=scit[,3])
+scib&lt;-data.frame(Estimate=scib[,1],LowerCI=scib[,2],UpperCI=scib[,3])
+cat(&quot;\n T Squared Based Simulatenous CI for Difference \n&quot;)
+print(scit)
+cat(&quot;\n Bonferroni Based Simulatenous CI for Difference \n&quot;)
+print(scib)</p>
+<p>}</p>
+<p>#Comparing means from NFL DATA set for all variables between the New England Patriots and the New York Jets</p>
+<p>#Set up Data Set Again</p>
+<p>NESUB &lt;- subset(WTP,Team==&ldquo;NE&rdquo;)
+NYJSUB &lt;- subset(WTP,Team==&ldquo;NYJ&rdquo;)
+NESUB &lt;- NESUB[,c(-3)]
+NYJSUB &lt;- NYJSUB[,c(-3)]
+MNENY&lt;- as.data.frame(rbind(NESUB,NYJSUB))
+MNENY &lt;- MNENY[,c(-1,-23:-28)]</p>
+<h1 id="x1--new-england-patriots">x1 = New England Patriots</h1>
+<p>x1 = MNENY[1:16,]</p>
+<p>#x2 = New York Jets
+x2 = MNENY[17:32,]</p>
+<h1 id="find-difference-of-means">Find Difference of Means</h1>
+<p>NENYCTSTT &lt;- TWOSAMPLETTEST(x1,x2,0.95)</p>
+<p>#Results</p>
+<h1 id="the-following-results-are-the-hotellings-t2-and-bonferroni-confidence-intervals">The following Results are the Hotellings&rsquo; T2 and Bonferroni Confidence Intervals</h1>
+<p>summary(NENYCTSTT)</p>
+<p>#THIS CHUNK IS TO NORMALIZE ALL THE DATA FOR THE REGRESSION MODELS</p>
+<p>WTP&lt;- read_excel(&ldquo;C:/Users/ericr/Desktop/NFL STATISTICS/NFL PROJECT DATA/T test data/WTP AV.xlsx&rdquo;)
+library(forecast)
+NWTP &lt;- WTP[,c(-1,-3)]
+NWTP&lt;- na.omit(NWTP)
+#NWTP &lt;- NWTP[NWTP$OPPS  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$PY  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$RY  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$TO  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$DPY  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$DRY  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$DTO  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$TT &gt; 2 ,]</p>
+<h1 id="--nwtpnwtptt--34-">&lt;- NWTP[NWTP$TT &lt; 3.4 ,]</h1>
+<p>NWTP &lt;- NWTP[NWTP$CAY  &gt; 0,]
+NWTP &lt;- NWTP[NWTP$AGG  &lt; 40,]
+#NWTP &lt;- NWTP[NWTP$LCAD  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$ATT  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$TD  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$INT  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$RUSHATT  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$RUSHTD  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$EFF  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$EM  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$TLOS  &gt; 0,]
+NWTP &lt;- NWTP[NWTP$AVG  &lt; 8,]
+#NWTP &lt;- NWTP[NWTP$SEP  &gt; 0,]
+#NWTP &lt;- NWTP[NWTP$CTCH  &gt; 0,]
+NWTP &lt;- NWTP[NWTP$TAY  &lt; 20,]
+NWTP &lt;- NWTP[NWTP$YACR  &lt;10 ,]
+#boxcox lambda list:
+#TO = NA  0.3008705
+#DTO = NA  0.3157798
+#CAY = 0.551116
+#AGG = 0.4273495
+#ATT = 0.2296755</p>
+<h1 id="td--na--04687738">TD = NA  0.4687738</h1>
+<p>#INT = NA  0.1973087
+#RUSHATT = -0.5606323
+#RUSHTD = 0.2437525
+#EFF = -0.9999282
+#EM = -0.1580629
+#AVG = 0.6778013
+#SEP = 0.1241314
+#yacR = 0.5778333
+NWTP &lt;- transform(NWTP, sqrtPY = sqrt(PY), sqrtRY = sqrt(RY), BCTO = BoxCox(TO, lambda = 0.3008705), sqrtDPY = sqrt(DPY), sqrtDRY = sqrt(DRY), BCDTO = log(DTO+1), BCCAY =BoxCox(CAY,lambda =  0.551116), BCAGG = BoxCox(AGG,lambda = 0.4273495), logLCAD = log(LCAD+1), BCATT =BoxCox(ATT,lambda = 0.2296755), BCTD = BoxCox(TD,lambda =0.4687738 ) , BCINT = BoxCox(INT,lambda = 0.1973087), BCRUSHATT = BoxCox(RUSHATT, lambda =-0.5606323 ), BCRUSHTD = BoxCox(RUSHTD, lambda =0.2437525 ), BCEFF = BoxCox(EFF,lambda = -0.9999282), BCEM = BoxCox(EM,lambda = -0.1580629), sqrtTLOS = sqrt(TLOS), BCAVG = BoxCox(AVG,lambda = 0.6778013), BCSEP = BoxCox(SEP,lambda = 0.1241314 ), BCYACR = BoxCox(YACR,lambda =  0.5778333))</p>
+<p>NWTP &lt;- NWTP[,c(-5:-7,-9:-11,-13:-15,-17:-19,-21:-27,-29,-32)]</p>
+<p>#VARIABLES NOT NORMALLY DISTRIBUTED
+#BCSEP, BCYACR, BCEM, BCRUSHATT, BCTO,BCDTO, BCAGG, BCATT, BCTD, BCINT,BCRUSHTD</p>
+<p>NWTP &lt;- NWTP[,c(-1,-14,-17,-19,-21:-25,-27,-30:-31)]
+MVNT2 &lt;- MVN::mvn(data = NWTP, mvnTest = &ldquo;mardia&rdquo;)</p>
+<p>#NWTP now consists of all normal or near normal distributions, even though it is not stated to be multivariate normal, will do regression anyway.</p>
+<p>#Assignment #5:</p>
+<h1 id="a-find-linear-models-for-4-variables">A). Find Linear Models for 4 variables</h1>
+<p>#finding best way with regsubsets package
+library(leaps)</p>
+<p>#RegSubset to find best combination of variables</p>
+<p>#Variable = sqrtPY
+RSPY&lt;- regsubsets(sqrtPY~. -TEAMS -OPPS -FD-DFD-sqrtRY-sqrtDPY-sqrtDRY-logLCAD, data = NWTP, intercept = TRUE, nbest = 1)</p>
+<p>#best subset with 4 variables
+RSPY4 &lt;- lm(sqrtPY~FD+COMP+sqrtRY+BCCAY, data = NWTP)</p>
+<p>#best subset with 5 variables
+RSPY5 &lt;- lm(sqrtPY~TEAMS+FD+COMP+sqrtRY+BCCAY, data = NWTP)</p>
+<p>#best subset with 6 variables
+RSPY6 &lt;- lm(sqrtPY~TEAMS+FD+COMP+TAY+sqrtRY+BCCAY, data = NWTP)</p>
+<p>#Variable = sqrtRY
+RSRY&lt;- regsubsets(sqrtRY~. -TEAMS -OPPS -FD-DFD-sqrtRY-sqrtDPY-sqrtDRY-logLCAD, data = NWTP, intercept = TRUE, nbest = 1)</p>
+<p>#best subset with 4 variables
+RSRY4 &lt;- lm(sqrtRY~AYTS+COMP+sqrtPY+BCAVG, data = NWTP)</p>
+<p>#best subset with 5 variables
+RSRY5 &lt;- lm(sqrtRY~AYTS+COMP+sqrtPY+BCAVG+TAY, data = NWTP)</p>
+<p>#best subset with 6 variables
+RSRY6 &lt;- lm(sqrtRY~AYTS+COMP+sqrtPY+BCAVG+TAY+TT, data = NWTP)</p>
+<p>#Variable = COMP
+RSCOMP&lt;- regsubsets(COMP~. -TEAMS -OPPS -FD-DFD-sqrtRY-sqrtDPY-sqrtDRY-logLCAD, data = NWTP, intercept = TRUE, nbest = 1)</p>
+<p>#best subset with 4 variables
+RSCOMP4 &lt;- lm(COMP~TT+AYTS+CTCH+sqrtPY, data = NWTP)</p>
+<p>#best subset with 5 variables
+RSCOMP5 &lt;- lm(COMP~TT+AYTS+CTCH+sqrtPY+BCCAY, data = NWTP)</p>
+<p>#best subset with 6 variables
+RSCOMP6 &lt;- lm(COMP~TT+AYTS+CTCH+sqrtPY+BCCAY+sqrtTLOS, data = NWTP)</p>
+<p>#Variable = TT
+RSTT&lt;- regsubsets(TT~. -TEAMS -OPPS -FD-DFD-sqrtRY-sqrtDPY-sqrtDRY-logLCAD, data = NWTP, intercept = TRUE, nbest = 1)</p>
+<p>#best subset with 4 variables
+RSTT4 &lt;- lm(TT~COMP+BCCAY+CTCH+sqrtPY, data = NWTP)</p>
+<p>#best subset with 5 variables
+RSTT5 &lt;- lm(TT~AYTS+COMP+BCCAY+CTCH+sqrtPY, data = NWTP)</p>
+<p>#best subset with 6 variables
+RSTT6 &lt;- lm(TT~AYTS+COMP+BCCAY+CTCH+sqrtPY+sqrtTLOS, data = NWTP)</p>
+<p>#Outlier Check:
+#Note Dataset was normalized and Outliers were Removed Earlier in the file.</p>
+<p>#Construct a 95% Prediction Interval for sqrtPY prediction with values TEAMS = 28, FD = 21, COMP = 67.8, TAY = 8.6, sqrtRY= 8.7, BCCAY = 3.62</p>
+<p>#Creating new dataframe for new predictions and plugging in:
+nd&lt;- data.frame(TEAMS = 28, FD = 21, COMP = 67.8, TAY = 8.6, sqrtRY= 8.7, BCCAY = 3.62)</p>
+<p>(YHP &lt;- predict(RSPY6,nd,interval = c(&ldquo;prediction&rdquo;),level=0.95))</p>
+<p>#Answer = ~ (16.70816)^2 passing yards
+# = ~ 279.162 passing yards</p>
+<h1 id="b-multivariate-regression-model">B). #Multivariate Regression Model</h1>
+<h1 id="i-fit-model-and-summary">i). Fit Model and summary</h1>
+<p>MVM1 &lt;-  lm(cbind(sqrtPY,COMP,TT,sqrtRY) ~ CTCH+TEAMS+sqrtTLOS+AYTS, data = NWTP)
+summary(MVM1)</p>
+<p>#Specify Matrix of Coefficents:
+coefficients(MVM1)</p>
+<h1 id="ii-analyze-residuals-and-check-for-outliers">ii). Analyze Residuals and Check for Outliers</h1>
+<p>#Residuals of Multivariate Regression
+head(resid(MVM1))
+SH&lt;-t(resid(MVM1)) %*% (resid(MVM1))/(337-(5))</p>
+<p>#Calculating Multivariate Normal
+MVMTN1&lt;- MVN::mvn(resid(MVM1), subset = NULL, mvnTest = c(&ldquo;mardia&rdquo;), covariance = TRUE, tol = 1e-25, alpha = 0.5, scale = FALSE, desc = TRUE, transform = &ldquo;none&rdquo;, R = 1000, univariateTest = c(&ldquo;SW&rdquo;), univariatePlot = &ldquo;none&rdquo;, multivariatePlot = &ldquo;qq&rdquo;, multivariateOutlierMethod = &ldquo;quan&rdquo;, bc = FALSE, bcType = &ldquo;rounded&rdquo;, showOutliers = TRUE, showNewData = FALSE)</p>
+<p>#summary of multivariate normal test<br>
+MVMTN1$multivariateNormality</p>
+<p>#Results:
+#There appear to be ~ 11 outliers , and there is a slight negative skew to the distribution though, and the mardia test stated that the distribution is not normally distributed in the multivariate case.</p>
+<p>#iii). Construct a Prediction Interval Given the following values
+# CTCH = 61.25, COMP = 65.45, sqrtTLOS = 1.654, TT = 2.73)</p>
+<p>NDMT1&lt;- data.frame(AYTS = -0.2, TEAMS = 35, CTCH = 67.85, sqrtTLOS = 1.34)</p>
+<p>#Function for Simulatenous 95 CI
+pred.mlm = function(object, newdata, level=0.95,interval = c(&ldquo;confidence&rdquo;, &ldquo;prediction&rdquo;))
+{
+form = as.formula(paste(&quot;~&quot;,as.character(formula(object))[3]))
+xnew = model.matrix(form, newdata)
+fit = predict(object, newdata)
+Y = model.frame(object)[,1]
+X = model.matrix(object)
+n = nrow(Y)
+m = ncol(Y)
+p = ncol(X) - 1
+sigmas = colSums((Y - object$fitted.values)^2) / (n - p - 1)
+fit.var = diag(xnew %*% tcrossprod(solve(crossprod(X)), xnew))
+if(interval[1]==&ldquo;prediction&rdquo;) fit.var = fit.var + 1
+const = qf(level, df1=m, df2=n-p-m) * m * (n - p - 1) / (n - p - m)
+vmat = (n/(n-p-1)) * outer(fit.var, sigmas)
+lwr = fit - sqrt(const) * sqrt(vmat)
+upr = fit + sqrt(const) * sqrt(vmat)
+if(nrow(xnew)==1L){
+ci = rbind(fit, lwr, upr)
+rownames(ci) = c(&ldquo;fit&rdquo;, &ldquo;lwr&rdquo;, &ldquo;upr&rdquo;)
+} else {
+ci = array(0, dim=c(nrow(xnew), m, 3))
+dimnames(ci) = list(1:nrow(xnew), colnames(Y), c(&ldquo;fit&rdquo;, &ldquo;lwr&rdquo;, &ldquo;upr&rdquo;) )
+ci[,,1] = fit
+ci[,,2] = lwr
+ci[,,3] = upr
+}
+ci
+}</p>
+<p>#95 CI Intervals and Print
+PMVM1 &lt;- pred.mlm(MVM1, NDMT1, level=0.95,interval = c(&ldquo;prediction&rdquo;))
+print(PMVM1)</p>
+<p>#Results:
+#sqrtPY = 17.1^2 = 292.41
+#Comp = 70.83%
+#TT = 2.633
+#sqrtRY = 12.23^2 = 149.5729</p>
+<h1 id="the-range-appears-larger-for-the-simulatenous-confidence-intervals-compared-to-the-one-at-a-time-confidence-intervals">The range appears larger for the simulatenous Confidence Intervals compared to the one-at-a-time confidence intervals.</h1>
+<p>#assignment 6:
+#Construct covariance matrix, obtain eigenvalue and eigenvector for PCA, compute total portion by first two PCs.</p>
+<p>#Library and Dataset up
+AVWTP&lt;- WTP[,c(5:8)]</p>
+<p>#A ). covariance matrix
+COVNWTP&lt;- cov(as.matrix(AVWTP))
+COVNWTP</p>
+<h1 id="correlation-matrix">correlation matrix</h1>
+<p>CORNWTP&lt;- cor(as.matrix(AVWTP))
+CORNWTP</p>
+<p>#B find eigenvalues and eigen vectors pairs
+PCA_AVWTP &lt;- principal(r=AVWTP,nfactors = 4,rotate = &ldquo;none&rdquo;)
+PCA_AVWTP</p>
+<p>#Eigenvalues:
+eigen(CORNWTP)</p>
+<p>#C ). Compute the proportion of Total variance explained by the first two Principle Components</p>
+<p>#Located in this subsection
+PCA_AVWTP$loadings</p>
+<h1 id="the-proportion-of-the-first-pc-is-424-of-the-total-variation">The proportion of the first PC is 42.4% of the total variation</h1>
+<p>#The proportion od the second PC is 33.33% of the total variation
+#The cumulative proportion explained by the FIRST TWO PCS is 75.7% of the total variation.</p>
+<p>#Calculate the coefficents of R
+CPCA &lt;- cor(NWTP,PCA_AVWTP$x)</p>
+<p>#Bonus Work on selecting Models</p>
+<p>#ALSO, we can find the best overall subset with given criteria for the model using glmulti. Additionally, given regsubset results, we can also use glmulti to find the best lm model effectivley for second level interactions</p>
+<p>#library(glmulti)</p>
+<p>#GLMPY1&lt;- glmulti(sqrtPY~., data = NWTP,intercept=TRUE,level = 1, method = &ldquo;h&rdquo;, crit = &ldquo;bic&rdquo;)</p>
+<h1 id="262144-models-options-for-the-following-output">262,144 models options for the following output</h1>
+<h1 id="resulting-best-equation">Resulting best equation:</h1>
+<p>#GLMPY2&lt;- glmulti(sqrtPY~., data = NWTP,intercept=FALSE,level = 1, method = &ldquo;h&rdquo;, crit = &ldquo;bic&rdquo;)</p>
+<h1 id="262144-models-options-for-the-following-output-1">262,144 models options for the following output</h1>
+<h1 id="resulting-best-equation-sqrtpy-1teamsfdcomptaysqrtrybccayloglcadbcavg">Resulting best equation: sqrtPY~-1+TEAMS+FD+COMP+TAY+sqrtRY+BCCAY+logLCAD+BCAVG</h1>
+<p>#exhaustive search up to 6 variables
+#GLMPY6 &lt;- glmulti(sqrtPY~TEAMS+FD+COMP+TAY+sqrtRY+BCCAY, data = NWTP,intercept=FALSE,level = 2, method = &ldquo;h&rdquo;, crit = &ldquo;bic&rdquo;)</p>
+<h1 id="resulting-best-equation-1">Resulting best equation:</h1>
+<p>#GLMPYA&lt;- glmulti(sqrtPY~., data = NWTP,intercept=TRUE,level = 2, method = &ldquo;g&rdquo;, crit = &ldquo;bic&rdquo;)</p>
+<p>#GLMWTP&lt;- glmulti(TT~CAY+AGG+AYTS+COMP+EFF+EM+TLOS+AVG+CUSH+SEP+TAY+CTCH+YACR, data=SSWTP,intercept=TRUE,level = 1, method = &ldquo;h&rdquo;, crit = &ldquo;bic&rdquo;)</p>
+<p>#GLMWTP2&lt;- glmulti(TT~CAY+AGG+AYTS+COMP+EM+TLOS, data=SSWTP,intercept=TRUE,level = 2, method = &ldquo;h&rdquo;, crit = &ldquo;bic&rdquo;)</p>
+<p>#Assignment #7 from textbook:
+#Growth Curve Exersize</p>
+<p>#NOTE: My dataset did not seem appropriate for growth curves at the time so I did the example in the book.</p>
+<h1 id="loading-libraries">Loading Libraries</h1>
+<p>library(ggplot2)
+library(psych)
+library(lavaan)
+library(lme4)
+library(nlme)
+library(readxl)</p>
+<p>#Read in File
+g2 &lt;- read_excel(&ldquo;g2.xlsx&rdquo;)</p>
+<p>#String Data
+str(g2)</p>
+<p>#Describe First 4 variables by gender
+describeBy(g2[,1:4],group=g2$gender)</p>
+<p>#Set variable = # of groups and separating them
+len=length(g2$gender)
+id=(1:len)</p>
+<h1 id="then-binding-them-to-have-data-organized-by-gender">Then binding them to have data organized by Gender</h1>
+<p>g2=cbind(id,g2)
+g2</p>
+<p>#Seperating Genders Females and Males: Describing them, creating Xbar, Creating covariance matrix</p>
+<p>#Females:
+fg2=g2[1:11, ]
+fg2
+describe(fg2[, 2:5])
+Sf=cov(fg2[, 2:5])
+Sf
+Xbarf=cbind((colMeans(fg2[, 2:5])))
+Xbarf</p>
+<p>#Males
+mg2=g2[12:17, ]
+mg2
+describe(mg2[, 2:5])
+Sm=cov(mg2[, 2:5])
+Sm
+Xbarm=cbind((colMeans(mg2[, 2:5])))
+Xbarm</p>
+<p>#Calculating S pooled
+Sp=(1/(17-2))*((11-1)*Sf + (6-1)*Sm)</p>
+<p>#Calculating W
+W=(17-2)*Sp</p>
+<p>#Inverse of S pooled
+SpI=solve(Sp)</p>
+<p>#create Matrix for transformations and powers of ages
+B &lt;- matrix(c(1,8,64,512,1,10,100,1000,1,12,144,1728,1,14,196,2744),nrow = 4,ncol = 4)</p>
+<p>#Transpose of B
+TB &lt;- t(B)</p>
+<p>#Transpose of B * Inverse of I * B
+P = (TB %<em>% SpI %</em>% B )</p>
+<p>#Inverse of Product
+PI &lt;- solve(P)</p>
+<p>#Calculating Products for Female group
+(BHFE &lt;- PI %<em>% TB %</em>% SpI %*% Xbarf )</p>
+<p>#Calculating Products for Male group
+(BHMA = PI %<em>% TB %</em>% SpI %*% Xbarm )</p>
+<p>#Calcuating Critical Value
+k=((17-2)<em>(17-2-1))/((17-2-4+3)</em>(17-2-4+3+1))
+((k/11)*PI)
+((k/6)*PI)</p>
+<p>#Creating Wilks Matrix for Women
+x=as.matrix(fg2[,2:5])
+Wf=cbind(c(0,0,0,0),c(0,0,0,0),c(0,0,0,0),c(0,0,0,0))
+Wf</p>
+<p>for (i in 1:11) {
+Wf= Wf +  (cbind(x[i,]) - B %<em>% BHFE) %</em>%</p>
+<ul>
+<li>t(cbind(x[i,]) - B %*% BHFE)<br>
+}</li>
+</ul>
+<p>#Creating Wilks Matrix for Men
+Wm=cbind(c(0,0,0,0),c(0,0,0,0),c(0,0,0,0),c(0,0,0,0))
+Wm
+for (i in 1:6) {
+Wm= Wm +  (cbind(x[i,]) - B %<em>% BHMA) %</em>%
++t(cbind(x[i,]) - B %*% BHMA)<br>
+}</p>
+<p>#Combining for Interaction Matrix
+WE=Wf+Wm</p>
+<p>#Calculating General W
+W=(17-2)*Sp</p>
+<p>#Calculating Lambda Likelihood Ratio test
+#W/ HO stating that q-order polynomial is sufficent
+(LAMBDA=det(W)/det(WE))</p>
+<p>(-17+((1/2)*(4-3+2)))*log(LAMBDA)</p>
+<h1 id="it-appears-3-is-the-best-choice">It appears 3 is the best choice</h1>
+<p>#Assignment 8:
+#Exploratory Factor Analysis:</p>
+<p>#Set Up Dataset
+DWTP &lt;- NWTP[,c(1:7)]</p>
+<p>#Create Covariance and Correlation Matrix
+SDWTP=cov(DWTP)
+RDWTP=cor(DWTP)</p>
+<p>#Maximum-likelihood factor analysis and Results:
+FA1 =factanal(DWTP,factors=1,cutoff=0.00000001,rotation=&ldquo;none&rdquo;)
+print(FA1,digits=5,cutoff=0.00000001)
+FA1
+summary(FA1)</p>
+<p>#Specifiy Loadings
+LFA1=loadings(FA1)
+LFA1</p>
+<p>#M=2</p>
+<p>#Maximum-likelihood factor analysis and Results:
+FA2=factanal(DWTP,factors=2,cutoff=0.00000001)
+print(FA2,digits=5,cutoff=0.00000001)
+FA2
+summary(FA2)</p>
+<p>#Specifiy Loadings
+LFA2=loadings(FA2)
+LFA2</p>
+<p>#Perform maximum-likelihood factor analysis covariance matrix W/ Loadings:</p>
+<p>#Factors = 1
+m1=factanal(x=NULL,factors=1,covmat=SDWTP,n.obs=337,cutoff=0.00000001,rotation=&ldquo;none&rdquo;)
+m1$loadings
+m1
+summary(m1)</p>
+<p>#Factors = 2
+m2 =factanal(x=NULL,factors=2,covmat=SDWTP,n.obs=337,cutoff=0.00000001,rotation=&ldquo;none&rdquo;)
+print(m2,digits=5,cutoff=0.00000001)
+m2
+summary(m2)</p>
+<p>#Using Correlation matrix Now W/ Loadings</p>
+<h1 id="factors--1">Factors = 1</h1>
+<p>m3=factanal(x=NULL,factors=1,covmat=RDWTP,n.obs=337,cutoff=0.00000001,rotation=&ldquo;none&rdquo;)
+m3
+summary(m3)
+m3$loadings</p>
+<h1 id="factors--2">Factors = 2</h1>
+<p>m4 =factanal(x=NULL,factors=2,covmat=RDWTP,n.obs=337,cutoff=0.00000001,rotation=&ldquo;none&rdquo;)
+m4
+summary(m4)
+print(m2,digits=5,cutoff=0.00000001)</p>
+<p>#Assignment 9:
+#Loading Library and Setting Up Dataset
+library(psych)
+DWTP &lt;- NWTP[,c(1:7)]</p>
+<p>#Create Covariance and Correlation Matrix
+SDWTP=cov(DWTP)
+RDWTP=cor(DWTP)</p>
+<p>#Principle Component Analysis W/ Covariance Matrix
+#M=1
+pc1 &lt;- principal(r=SDWTP, nfactors = 1, rotate = &rsquo;none&rsquo;, covar = TRUE)
+pc1
+summary(pc1)
+#Specific Variances
+pc1$uniqueness</p>
+<p>#Residuals
+pc1$residual</p>
+<h1 id="m--2">m = 2</h1>
+<p>pc2 &lt;- principal(r=SDWTP, nfactors = 2, rotate = &rsquo;none&rsquo;, covar = TRUE)
+summary(pc2)
+pc2
+#Specific Variances
+pc2$uniqueness</p>
+<p>#Residuals
+pc2$residual</p>
+<p>#Factor Analysis using &ldquo;ML&rdquo;
+#Factors = 1
+AF1 &lt;- fa(r=SDWTP, nfactors = 1, rotate = &rsquo;none&rsquo;, covar = TRUE)</p>
+<p>#Calculated Loadings and communalities
+AF1$loadings
+AF1$communalities</p>
+<p>#Specific Variation and Overall Residuals
+AF1$uniquenes
+AF1$residual</p>
+<h1 id="m--2-1">m = 2</h1>
+<p>#Factors = 2
+AF2 &lt;- fa(r=SDWTP, nfactors = 2, rotate = &rsquo;none&rsquo;, covar = TRUE)</p>
+<p>#Calculated Loadings and communalities
+AF2$loadings
+AF2$communalities</p>
+<p>#Specific Variation and Overall Residuals
+AF2$uniquenes
+AF2$residual</p>
+<p>#part c</p>
+<h1 id="it-is-clear-that-in-this-case-the-principle-component-analysis-works-far-better-than-the-mle">It is clear that in this case, the Principle component analysis works far better than the mle</h1>
+<h1 id="additionally-when-there-are-2-factors-the-analysis-grows-far-stronger-but-its-due-to-the-extreme-variation-in-the-data">additionally, when there are 2 factors, the analysis grows far stronger, but its due to the extreme variation in the data.</h1>
+<h1 id="assignment--10">Assignment # 10:</h1>
+<p>#Perform Factor Analysis using Correlation Matrix
+#Library and Set up Dataset
+library(psych)
+DWTP &lt;- NWTP[,c(1:7)]</p>
+<p>#Create Covariance and Correlation Matrix
+SDWTP=cov(DWTP)
+RDWTP=cor(DWTP)</p>
+<p>#Principle Component Analysis with 1 Factor.
+#With Specific Variation and Residuals
+P2A1&lt;- principal(r=RDWTP, nfactors = 1, rotate = &rsquo;none&rsquo;, covar = FALSE)
+P2A1
+summary(P2A1)
+P2A1$uniqueness
+P2A1$residuals</p>
+<p>#Principle Component Analysis with 2 Factors.
+#With Specific Variation and Residuals
+P2A2&lt;- principal(r=RDWTP, nfactors = 2, rotate = &rsquo;none&rsquo;, covar = FALSE)
+P2A2
+summary(P2A2)
+P2A2$uniqueness
+P2A2$residuals</p>
+<h1 id="factor-analysis-using-ml-with-1-factor">Factor Analysis USing &ldquo;ML&rdquo;, With 1 Factor</h1>
+<p>#W/ communalities and residuals
+A1F1 &lt;- fa(r=RDWTP, nfactors = 1, rotate = &rsquo;none&rsquo;, covar = FALSE)
+A1F1
+summary(A1F1)
+A1F1$communalities
+A1F1$residual</p>
+<h1 id="factor-analysis-using-ml-with-2-factors">Factor Analysis USing &ldquo;ML&rdquo;, With 2 Factors</h1>
+<p>#W/ communalities and residuals
+A1F2 &lt;- fa(r=RDWTP, nfactors = 2, rotate = &rsquo;none&rsquo;, covar = FALSE)
+A1F2
+summary(A1F2)
+A1F2$communalities
+A1F2$residual</p>
+<p>#Does it make a difference if R, rather than S is factored? Explain.</p>
+<h1 id="it-makes-a-difference-because-the-maximum-likelihood-estimator-is-more-telling-of-a-stronger-principal-component">It makes a difference because the Maximum Likelihood estimator is more telling of a stronger principal component.</h1>
+<p>#a review of the residual matrices indicates MLE still performs better than the principal component solution</p>
+<p>#Additionally, it appears that having m=2 makes the Factor Analyses and Principal component stronger, which is probably due to how many variables there are in the dataset.</p>
+<p>#Assignment #11:
+#generate a)specific variances b)communalities #c)proportion of variance explained by each factor d)residual matrix</p>
+<h1 id="library-and-set-up-dataset">Library and Set up dataset</h1>
+<p>library(psych)
+DWTP &lt;- NWTP[,c(1:7)]</p>
+<p>#Create Covariance and Correlation Matrix
+SDWTP=cov(DWTP)
+RDWTP=cor(DWTP)</p>
+<p>#Factor Analysis with Correlation Matrix &amp; Print
+F2A1 &lt;- fa(RDWTP,nfactors=2,n.obs=337,rotate=&ldquo;none&rdquo;,fm=&ldquo;ml&rdquo;)
+print(F2A1,digits=5,cutoff=0.00000001)</p>
+<p>#A). Specific Variances
+F2A1$uniquenesses</p>
+<p>#B).Communalities
+F2A1$communalities</p>
+<p>#C). the proportion of variance explained by each factor
+F2A1$loadings</p>
+<p>#D). Residual Matrix
+F2A1$residual</p>
+<h1 id="factor-analysis-with-2-facts-and-correlaton-matrix--print">Factor Analysis with 2 facts, and correlaton matrix &amp; Print</h1>
+<p>CTA1 &lt;- factanal(x=NULL,factors=2,covmat=RDWTP,n.obs=337,cutoff=0.00000001,rotation=&ldquo;none&rdquo;)
+print(CTA1,digits=5,cutoff=0.00000001)</p>
+<p>#A). Specific Variances
+CTA1$uniquenesses</p>
+<p>#B).Communalities (had to google)
+rowSums(CTA1$loadings^2)</p>
+<p>#C). the proportion of variance explained by each factor
+CTA1$loadings</p>
+<p>#D). Residual Matrix
+factor.residuals(RDWTP,CTA1$loadings)</p>
+<p>#Assignment #12:
+#a) Compute the canonical correlations
+#b) Test for the significance of the canonical correlations with alpha=0.01.
+#c)  Generate two plots using the function helio.plot: one plot for cv=1 and one plot for cv=2.
+#Write a paragraph describing the information displayed in the plots.</p>
+<h1 id="library-and-set-up-dataset-1">Library and Set up dataset</h1>
+<p>library(yacca)
+QB &lt;- NWTP[,c(5:7,11,15,16)]
+RBWR &lt;- NWTP[,c(8:10,12,17:19)]
+TP &lt;- NWTP[,c(1:4,13:14)]</p>
+<p>#Correlation of all variables used
+RAWTP &lt;- cor(NWTP)</p>
+<p>#canonical correlation</p>
+<h1 id="3-separate-types-to-determine-find-linear-combinations-and-relations-among-type-of-variables">3 Separate types to determine find Linear Combinations and relations among type of variables.</h1>
+<p>CCN1 &lt;- cca(x=QB,y=RBWR,xlab = colnames(QB),ylab = colnames(RBWR),standardize.scores = TRUE)</p>
+<p>CCN2 &lt;- cca(x=QB,y=TP,xlab = colnames(QB),ylab = colnames(TP),standardize.scores = TRUE)</p>
+<p>CCN3 &lt;- cca(x=RBWR,y=TP,xlab = colnames(RBWR),ylab = colnames(TP),standardize.scores = TRUE)</p>
+<h1 id="helio-plots-for-all-canonical-correlation-models-w-plot-of-cv1cv2">Helio Plots For all canonical correlation models w/ plot of cv1&amp;cv2</h1>
+<p>#CCN1
+helio.plot(CCN1,cv=1)
+helio.plot(CCN1,cv=2)</p>
+<p>#CCN2
+helio.plot(CCN2,cv=1)
+helio.plot(CCN2,cv=2)</p>
+<p>#CCN3
+helio.plot(CCN3,cv=1)
+helio.plot(CCN3,cv=2)</p>
+<p>#Chi squared values for Bartlett&rsquo;s Test
+CCN1$chisq
+CCN1$df
+qchisq(.99,CCN1$df[1],ncp=0)
+qchisq(.99,CCN1$df[2],ncp=0)
+qchisq(.99,CCN1$df[3],ncp=0)
+qchisq(.99,CCN1$df[4],ncp=0)
+qchisq(.99,CCN1$df[5],ncp=0)
+qchisq(.99,CCN1$df[6],ncp=0)
+F.test.cca(CCN1)</p>
+<p>#CCN2
+CCN2$chisq
+CCN2$df
+qchisq(.99,CCN2$df[1],ncp=0)
+qchisq(.99,CCN2$df[2],ncp=0)
+qchisq(.99,CCN2$df[3],ncp=0)
+qchisq(.99,CCN2$df[4],ncp=0)
+qchisq(.99,CCN2$df[5],ncp=0)
+qchisq(.99,CCN2$df[6],ncp=0)
+F.test.cca(CCN2)</p>
+<p>#CCN3
+CCN3$chisq
+CCN3$df
+qchisq(.99,CCN3$df[1],ncp=0)
+qchisq(.99,CCN3$df[2],ncp=0)
+qchisq(.99,CCN3$df[3],ncp=0)
+qchisq(.99,CCN3$df[4],ncp=0)
+qchisq(.99,CCN3$df[5],ncp=0)
+qchisq(.99,CCN3$df[6],ncp=0)
+F.test.cca(CCN3)</p>
+<p>#These plots highlight that there is a substantial amount of linear correlations among the variables present in both the x and y variables. The higher the boxes stack, the more canonical correlation the variables have, and possibly can be considered linear combinations of other variables. The one major variable that has a negative correlation is the BCEFF, as its the variable whose box is pointed most inside compared to the rest. The positive correlation is when the box goes outward from the circle . The closer the boxes are to the darked center line, the less canonical correlated they are to other variables.</p>
+<p>#Assignment 13:
+#Euclidean Distances and dendrograms, compare results and determine if there are several clusters</p>
+<h1 id="library-and-set-up-dataset-2">Library and Set up dataset</h1>
+<p>library(&ldquo;stats&rdquo;)
+library(cluster)
+TWTP &lt;- WTP[,c(1,4:5,7:8,19:22)]</p>
+<p>#Euclidean Distances
+ED&lt;- dist(TWTP,method=&ldquo;euclidean&rdquo;)</p>
+<p>#Creating Dendrograms
+EDH &lt;- hclust(ED,method=&ldquo;average&rdquo;)
+plot(EDH)</p>
+<p>#DO There Appear to be Several Clusters?
+#There appears to be several clusters that have a slight assoiciation together, yet makes up a vast array of influential factors.</p>
+<p>#Assignment #14:
+#K means cluster algorithm, compare to assignment 13, are there about the right number of clusters</p>
+<h1 id="library-and-set-up-dataset-3">Library and Set up dataset</h1>
+<p>library(&ldquo;stats&rdquo;)
+library(cluster)
+library(NbClust)</p>
+<p>#Creating clusters, min = 2, max =15, by he kmeans method
+nc &lt;- NbClust(NWTP, min.nc=2, max.nc=15, method=&ldquo;kmeans&rdquo;)</p>
+<p>#Set up random Generation
+set.seed(1234)</p>
+<p>#Simulating 5 clusters
+fit5 = kmeans(NWTP, centers=5,  nstart=25)
+fit5</p>
+<p>#Euclidean cluster plot
+clusplot(pam(NWTP,5,metric=&ldquo;euclidean&rdquo;))</p>
+<p>#Simulating 5 clusters
+fit6= kmeans(NWTP, centers=6,  nstart=25)
+fit6</p>
+<p>#Euclidean cluster plot
+clusplot(pam(NWTP,6,metric=&ldquo;euclidean&rdquo;))</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://Emr89.github.io/" >
+    &copy;  Eric Matthew Rupinski  2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+    
+    <a href="https://twitter.com/GoHugoIO" target="_blank" rel="noopener" class="twitter ananke-social-link link-transition stackoverflow link dib z-999 pt3 pt0-l mr1" title="Twitter link" aria-label="follow on Twitter——Opens in a new window">
+      
+        <span class="icon"><svg style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+</span>
+      
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;"/>
+</svg>
+</span></a>
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
